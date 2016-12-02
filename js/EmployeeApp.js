@@ -62,7 +62,6 @@ function EmployeeAppView(empApp){
 	function onAddClick(e){
         e.preventDefault();
 		empApp.addEmp();
-        console.log("fuck");
 		render();
 	}
 
