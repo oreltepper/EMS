@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="Style/stylesheet.css">
+</head>
+<body>
+
+    <section id="addNewEmployee">
+        <h2>Employee Management System</h2>
+        <form action="" id="myForm">
+            <input type="text" id="emp-name" placeholder="Employee Name...">
+            <input type="text" id="emp-skill" placeholder="Employee Skill...">
+
+            <select name="title" id="emp-title">
+                <option value="developer">Developer</option>
+                <option value="ceo">CEO</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">student</option>
+            </select>
+
+            <button id="btn-add-new-emp">Add New Employee</button>
+        </form>
+    </section>
+
+    <script id="employeeList" type="text/x-handlebars-template">
+
+        <section id="empList">
+            <h3>Employees List</h3>
+            <hr>
+            <div id="user-container" class="u_clearfix">
+                <ul >
+
+                </ul>
+            </div>
+
+        </section>
+
+    </script>
+
+
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="user-info">
+                <p>
+                    <span class="u_bold">ID:</span>
+                    <span class="info id-info" id="id-info">{{id}}</span>
+                </p>
+                <p>
+                    <span class="u_bold">Name:</span>
+                    <span class="info name-info">{{name}}</span>
+                </p>
+                <p>
+                    <span class="u_bold">Skill:</span>
+                    <span class="info skill-info">{{skill}}</span>
+
+
+                </p>
+                <p>
+                    <span class="u_bold">Title:</span>
+                    <span class="info title-info">{{title}}</span>
+
+                </p>
+                <p>
+                    <span class="u_bold">Last Check-in:</span>
+                    <span class="info lastCheck-info">{{checkin}}</span>
+                </p>
+        </div>
+
+        <div class="user-methods">
+          {{#if ceo}}
+                  <button class="fireEveryone">Fire EveryOne</button>
+                  <button class="sayYo">Say YO</button>
+                  <button class="checkIn">CheckIn</button>
+           {{/if}}
+
+           {{#if developer}}
+               <button class="sayYo">Say YO</button>
+
+            {{/if}}
+
+           {{#if teacher}}
+                <button class="sayYo" >Say YO</button>
+                <button class="checkIn" >Check In</button>
+
+           {{/if}}
+
+           {{#if student}}
+                 <button class="checkIn" >Check In</button>
+           {{/if}}
+
+        </div>
+
+    </script>
+
+
+    <script id="empApp" type="text/x-handlebars-template">
+            <div class="list">
+
+            </div>
+    </script>
+
+    <script src="lib/handlebars.min-latest.js"></script>
+    <script src="js/Employee.js"></script>
+    <script src="js/CEO.js"></script>
+    <script src="js/Developer.js"></script>
+    <script src="js/Student.js"></script>
+    <script src="js/Teacher.js"></script>
+    <script src="js/EmployeeApp.js"></script>
+    <script src="js/EmployeeList.js"></script>
+
+
+    <script>
+        var app = new EmployeeApp();
+        var view = new EmployeeAppView (app);
+        document.body.appendChild (view.html);
+    </script>
+
+</body>
+</html>

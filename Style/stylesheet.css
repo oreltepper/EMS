@@ -1,0 +1,95 @@
+body {
+    background-color: #2f2f2f;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+section {
+    background-color: #f3f3f3;
+    padding: 20px;
+    display: block;
+    width: 500px;
+    border-radius: 10px;
+    margin: 15px 0;
+    height: 100%;
+}
+
+input[type='text'] {
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+button {
+    background-color: #5fb760;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: white;
+}
+
+/*classes*/
+.user-container {
+    width: 100%;
+
+}
+
+.user-info {
+    float:left;
+    width: 48%;
+    /*background-color:blue;*/
+    /*margin: 30px;*/
+}
+
+.user-info li {
+    width: 200px;
+}
+
+.user-info:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.user-methods {
+    float: right
+    width: 48%;
+    /*background-color:red;*/
+    /*margin: 30px;*/
+}
+
+.user-methods:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+/*utilities*/
+
+.u_bold {
+    font-weight: bold;
+}
+
+.u_clearfix {
+    /*content: "";
+    display: block;
+    clear: both;*/
+    overflow: auto;
+}
