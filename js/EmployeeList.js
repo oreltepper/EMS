@@ -16,7 +16,6 @@ EmployeeList.prototype.sayYo = function(Employee){
 };
 
 EmployeeList.prototype.checkIn = function(Employee){
-
 	for(var i=0; i<this.currentItemList.length; i++) {
 		if (this.currentItemList[i] == Employee){
               	this.currentItemList[i].setCheckIn(new Date());
@@ -55,36 +54,40 @@ function EmployeeListView(EmployeeList){
 		for(var i=0; i<EmployeeList.currentItemList.length; i++){
 			var item = EmployeeList.currentItemList[i];
 			var itemView = new EmployeeView(item);
-            registerSayYo(item, itemView);
-						registerCheckIn(item, itemView);
-						registerfireEveryOne(item, itemView);
+            registerAll(item, itemView);
 			ul.appendChild(itemView.html);
 		}
 	}
 
+    function registerAll(item, itemView){
+        registerCheckIn(item, itemView);
+        registerfireEveryOne(item, itemView);
+        registerSayYo(item, itemView);
+    }
+
     function registerSayYo(item, itemView){
-    var sayYoemp= function(){
-        EmployeeList.sayYo(item);
-    };
-     itemView.onSayYo(sayYoemp);
-}
+        var sayYoemp= function(){
+            EmployeeList.sayYo(item);
+        };
+        itemView.onSayYo(sayYoemp);
+    }
 
-function registerCheckIn(item, itemView){
-var checkInemp= function(){
-		EmployeeList.checkIn(item);
-		render();
-};
- itemView.onCheckIn(checkInemp);
-}
+    function registerCheckIn(item, itemView){
+        var checkInemp= function(employee){
+    		EmployeeList.checkIn(employee);
+    		render();
+        };
+        itemView.onCheckIn(checkInemp);
+    }
 
 
-function registerfireEveryOne(item, itemView){
-var fireEveryOneemp= function(){
-		EmployeeList.fireEveryOne();
-		render();
-};
- itemView.onFireEveryOne(fireEveryOneemp);
-}
+    function registerfireEveryOne(item, itemView){
+        var fireEveryOneemp= function(){
+    		EmployeeList.fireEveryOne();
+    		render();
+        };
+         itemView.onFireEveryOne(fireEveryOneemp);
+    }
 
 	init();
 	render();

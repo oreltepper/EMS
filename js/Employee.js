@@ -23,6 +23,8 @@ function EmployeeView(Employee){
   var template,self=this,
   onSayYoHandler;
 
+  this.em = Employee;
+
   function init(){
     var source= document.getElementById("entry-template").innerHTML;
     template= Handlebars.compile(source);
@@ -30,7 +32,7 @@ function EmployeeView(Employee){
   }
 
   function render(){
-    
+
     var tmptile=Employee.title;
     self.html.innerHTML = template(Employee);
 
@@ -47,39 +49,39 @@ function EmployeeView(Employee){
 
   }
 
-  function onSayYoClick(){
+    function onSayYoClick(){
   		if(onSayYoHandler)
   			onSayYoHandler();
   	}
 
     function onSayYo(handler){
-    onSayYoHandler = handler;
-}
+        onSayYoHandler = handler;
+    }
 
-this.onSayYo = onSayYo;
+    this.onSayYo = onSayYo;
 
-  function onFireEveryOneClick(){
+    function onFireEveryOneClick(){
   		if(onFireEveryOneHandler)
   			onFireEveryOneHandler();
   	}
 
     function onFireEveryOne(handler){
-    onFireEveryOneHandler = handler;
-}
+        onFireEveryOneHandler = handler;
+    }
 
-this.onFireEveryOne = onFireEveryOne;
+    this.onFireEveryOne = onFireEveryOne;
 
-function onCheckInClick(){
-      if(onCheckInHandler)
-          onCheckInHandler();
-  }
+    function onCheckInClick(){
+          if(onCheckInHandler)
+              onCheckInHandler(Employee);
+    }
 
-  function onCheckIn(handler){
-  onCheckInHandler = handler;
-}
+    function onCheckIn(handler){
+        onCheckInHandler = handler;
+    }
 
-this.onCheckIn = onCheckIn;
+    this.onCheckIn = onCheckIn;
 
-  init();
-  render();
+    init();
+    render();
 }
