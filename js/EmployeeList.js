@@ -16,7 +16,7 @@ EmployeeList.prototype.sayYo = function(Employee){
 };
 
 EmployeeList.prototype.checkIn = function(Employee){
-	debugger;
+
 	for(var i=0; i<this.currentItemList.length; i++) {
 		if (this.currentItemList[i] == Employee){
               	this.currentItemList[i].setCheckIn(new Date());
